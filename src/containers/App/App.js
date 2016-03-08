@@ -5,7 +5,6 @@ import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
-import { InfoBar } from 'components';
 import config from '../../config';
 
 export default class App extends Component {
@@ -44,13 +43,6 @@ export default class App extends Component {
         </Navbar>
         <div className={styles.appContent}>
           {this.props.children}
-        </div>
-        <InfoBar/>
-        <div className="well text-center">
-          Have questions? Ask for help <a
-          href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-          target="_blank">on Github</a> or in the <a
-          href="https://discord.gg/0ZcbPKXt5bZZb1Ko" target="_blank">#react-redux-universal</a> Discord channel.
         </div>
       </div>
     );

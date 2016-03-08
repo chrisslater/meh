@@ -25,8 +25,7 @@ const pretty = new PrettyError();
 const app = new Express();
 const server = new http.Server(app);
 const proxy = httpProxy.createProxyServer({
-  target: targetUrl,
-  //ws: true
+  target: targetUrl
 });
 
 app.use(compression());
@@ -38,10 +37,6 @@ app.use(Express.static(path.join(__dirname, '..', 'static')));
 app.use('/api', (req, res) => {
   proxy.web(req, res, {target: targetUrl});
 });
-
-//app.use('/ws', (req, res) => {
-//  proxy.web(req, res, {target: targetUrl + '/ws'});
-//});
 
 server.on('upgrade', (req, socket, head) => {
   proxy.ws(req, socket, head);
